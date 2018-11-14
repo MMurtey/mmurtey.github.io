@@ -1,0 +1,21 @@
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+#RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteRule . /index.php
+RewriteRule ^(index|portfolio|services|contact)/?$ $1.php [NC]
+</IfModule>
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName mikemurtey.com
+AddHandler cgi-script .py
